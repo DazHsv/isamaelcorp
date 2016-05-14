@@ -1,0 +1,34 @@
+#skills, #team {
+	min-height: calc(100vh);
+	height: auto;
+	padding: 3em 0;
+}
+
+.skill {
+	min-height: calc(35vh - 3em);
+	background-color: rgba(0,0,0,.5);
+	color: #fff;
+	padding: .5em;
+
+	
+	&__icon {
+		font-size: 3em;
+		max-height: 80px;
+	}
+
+	&__title {
+		margin-bottom: .5em;
+		line-height: .5;
+		font-size: 2em;
+	}
+
+	&__content {
+		padding: .5em 0;
+		font-size: 0.9em;
+	}
+
+	&.red { background-color: rgba($red,.9); }
+	&.blue { background-color: rgba(#283593,.9); }
+	&.teal { background-color: rgba($teal,.9);}
+	&.brown {background-color: rgba($brown,.9);}
+}

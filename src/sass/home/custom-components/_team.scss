@@ -1,0 +1,70 @@
+.team {
+//	min-height: calc(50vh - 3em);
+	height: auto;
+	color: #fff;
+
+	&__img {
+		position: relative;
+		min-height: 250px;
+		width: 250px;
+		background: rgba(#000,.75) url("../img/team.png");
+		/*border-radius: 15px;
+		transition: border-radius ease .3s;*/
+		&.ismael {background-position: right center;}
+		&.hugo {
+			background-position: left center;
+		}
+		&.isaac {
+			background-position: center center;
+		}
+	}
+
+	&__name {
+		font-weight: 700;
+		font-size: 1.2em;
+		text-shadow: 0 0 7px rgba(0, 0, 0, .5);
+	}
+
+	&__social {
+		line-height: 3;
+		transform: translateY(-50%);
+	}
+
+
+	@include from(web) {
+		&__name {
+			transform: translateY(120%);
+			transition: transform ease .3s;
+			text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+		}
+
+		/*&__img {
+			&:before {
+				content: "";
+				display: block;
+				width: 0;
+				height: 6px;
+				background-color: #fff;
+				position: absolute;
+				left:50%;
+				bottom: -3px;
+				transition: left ease .3s, width ease .3s;
+			}
+			&:hover{
+				border-radius: 0;
+				&:before {
+					width: 100%;
+					left:0;
+				}
+				
+			}
+
+		}*/
+		
+		&:hover {
+			.team__name {
+				transform: translateY(0);
+			}
+		}
+	}
+}

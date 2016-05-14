@@ -1,0 +1,46 @@
+#banner {
+	box-sizing:border-box;
+	padding: 3em 0 0;
+	height: 100vh;
+}
+
+.container {
+	height: 100%;
+	color: #fff;
+}
+
+.logo {
+	outline: 2px solid #fff;
+	//width: 80%;
+	height: 30%;
+	//background-color: #fff;
+
+	&__title {
+		font-size: 1.5em;
+	}
+
+	&__subtitle {
+		color:#fff;
+		font-size: 1.1em;
+	}
+
+	@media screen and (orientation:landscape) {
+		&__title {
+			font-size: 2em;
+		}
+	}
+	
+	@include from(tablet) {
+		width: auto;
+		height: 35%;
+	}
+
+	@include from(web) {
+		//width: 55%;
+		height: 35%;
+		&__title {
+			font-size: 3em;
+		}
+	}
+		
+}

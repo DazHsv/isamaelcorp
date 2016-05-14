@@ -1,0 +1,51 @@
+.separated {
+	padding: .5em;
+	@include from(web) {
+		//margin: .5em 0;
+	}
+}
+.title {
+	color: #fff;
+	font-size: 2em;
+	text-align: center;
+	width: 100vw;
+	line-height: 1.5;
+
+	@include to(movil) {
+		background-color: rgba(0,0,0,.6);
+	}
+}
+.social {
+	box-sizing:border-box;
+	color:#fff;
+	padding: 1em;
+
+	&--facebook,
+	&--twitter,
+	&--youtube,
+	&--google-plus {
+		border-radius:50%;
+		//min-width: 50px;
+		//min-height: 50px;
+		display: block;
+		text-align: center;
+
+
+		@include from(web) {
+			transition: border-radius ease .3s, box-shadow ease .3s;
+			&:hover {
+				border-radius:0;
+				box-shadow: 2px 2px 0 #fff inset,
+							-2px -2px 0 #fff inset;
+			}
+		}
+	}
+
+	&--facebook { background-color: $blue; }
+	&--twitter { background-color: lighten($blue,10%); }
+	&--youtube,
+	&--google-plus { background-color: $red; }
+}
+.full-height {
+	height: 100%;
+}

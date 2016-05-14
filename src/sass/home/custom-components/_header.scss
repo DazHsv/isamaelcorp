@@ -1,0 +1,12 @@
+#header {
+	background-color: rgba(0,0,0,.75);
+	min-height: 3em;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+}
+.toggle-menu {
+	@include from(tablet) {
+		display: none;
+	}
+}

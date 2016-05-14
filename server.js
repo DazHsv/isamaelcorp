@@ -54,7 +54,11 @@ app.use(session({
 
 
 app.get('/',function(req,res){
-	res.send('Hello');
+	res.render('home/index');
+});
+
+app.get('/e',function(req,res){
+	res.send('Elearning');
 });
 
 app.listen(port,ipaddress);

@@ -1,0 +1,26 @@
+#footer {
+	height: auto;
+	background-color: rgba(#000,.6);
+	padding: 1em;
+	.copy {
+		color:#fff;
+		margin: 1em;
+	}
+	z-index: 999;
+}
+
+.social--footer {
+
+	&__item {
+		max-width: 50px;
+		line-height: 50px;
+		margin: .5em .25em;
+		@include from(tablet){
+			margin: 0 1em;
+		}
+	}
+
+	&__icon {
+		color: #fff;		
+	}
+}
