@@ -6,7 +6,7 @@ var express        = require('express'),
 	mongoose       = require('mongoose'),
 	MongoStore     = require('connect-mongo/es5')(session),
 	app = express();
-	
+
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP,
 	port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.use('/static',express.static(__dirname + '/public/'));
 app.use(helmet());
-app.set('view engine','pug');
+app.set("view engine","pug");
 app.use(session({
 	secret:"221weqofyb9iuqxegoi",
 	resave:false,
