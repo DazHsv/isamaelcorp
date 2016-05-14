@@ -58,7 +58,49 @@ app.get('/',function(req,res){
 });
 
 app.get('/e',function(req,res){
-	res.send('Elearning');
+	res.render('app/home',{cursos:cursos});
 });
+
+app.get('/e/login',function(req,res){
+	res.render('app/login');
+});
+
+app.get('/e/signup',function(req,res){
+	res.render('app/signup');
+});
+
+var cursos = [{
+	id:"904782595705786",
+	title:"Node js",
+	description:"Curso de node js desde cero. Lorem ipsum doloret sit amed borem",
+	owner: {
+		nickname:"DazHsv"
+	},
+	image_url:"http://lorempixel.com/400/150"
+},{
+	id:"435612848512356",
+	title:"CSS3",
+	description:"Curso de CSS3 desde cero. Lorem ipsum doloret sit amed borem",
+	owner: {
+		nickname:"DazHsv"
+	},
+	image_url:"http://lorempixel.com/400/150/sports"
+},{
+	id:"548945641335465",
+	title:"HTML5",
+	description:"Curso de HTML5 desde cero. Lorem ipsum doloret sit amed borem",
+	owner: {
+		nickname:"DazHsv"
+	},
+	image_url:"http://lorempixel.com/400/150/nature"
+},{
+	id:"754864654168418",
+	title:"JavaScript",
+	description:"Curso de JavaScript desde cero. Lorem ipsum doloret sit amed borem",
+	owner: {
+		nickname:"DazHsv"
+	},
+	image_url:"http://lorempixel.com/400/150"
+}];
 
 app.listen(port,ipaddress);

@@ -6,22 +6,33 @@ head
 	meta(http-equiv="X-UA-Compatible", content="IE=edge")
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-	// Optional theme
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
+	link(rel="stylesheet", href="https://bootswatch.com/cerulean/bootstrap.min.css")
 
 	// Latest compiled and minified JavaScript
 	
 	title IsamaelCorp
 body
 	
-	nav(class="navbar navbar-inverse navbar-fixed" role="navigation")
+	nav(class="navbar navbar-default" role="navigation")
 		div(class="container")
-			div(class="navbar-header")
-				button()
+			div(class="row")
+				div(class="col-md-8")
+					div(class="navbar-header")
+						a(href="/e" class="navbar-brand") Isamael Corp: e#[sup 3]
+						button(type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-menu")
+							span(class="sr-only") Expandir navegación
+							span(class="icon-bar")
+							span(class="icon-bar")
+							span(class="icon-bar")
+				div(class="collapse navbar-collapse" id="collapse-menu")
+					ul(class="nav navbar-nav")
+						li: a(href="/e") Inicio
+						li: a(href="/e/signup") Registrarse
+						li: a(href="/e/login") Iniciar sesión
 
-	block content
+	div(class="container")
+		block content
 
 	script(src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous")
 	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")

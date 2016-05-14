@@ -1,0 +1,23 @@
+extends ./index.pug
+block content
+	header(class="jumbotron")
+		h1 Bienvenido a e#[sup 3]!
+		p #[i "El conocimiento debería ser libre y gratuito"]. Basándonos en esta filosofía, nosotros confiamos en que si la cantidad correcta de personas colaboran, compartiendo sus conocimientos sin ánimo de lucro, esto se puede conseguir en un futuro.
+		p: a(href="/e/singup" class="btn btn-success btn-lg") ¡Únete ahora!
+
+	hr
+
+	div(class="row")
+		div(class="col-lg-12")
+			h3 ¡Cursos más recientes!
+
+	div(class="row text-center")
+		each c in cursos
+			div(class="col-md-3 col-sm-6")
+				div(class="thumbnail")
+					img(src=c.image_url alt=c.title title=c.title)
+					div(class="caption")
+						h3= c.title
+						p By: #{c.owner.nickname}
+						p=c.description
+						p: a( class="btn btn-primary btn-sm" href='/e/course/'+c.id) Ver
