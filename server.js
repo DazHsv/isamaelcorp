@@ -51,6 +51,9 @@ app.use(session({
 		ttl: 24 * 60 * 60
 	})
 }));
+if (app.get('env') === 'development') {
+  app.locals.pretty = true;
+}
 
 
 app.get('/',function(req,res){

@@ -7,36 +7,33 @@ head
 
 	<!-- Latest compiled and minified CSS -->
 	link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
-	link(rel="stylesheet", href="https://bootswatch.com/cerulean/bootstrap.min.css")
-	link(rel="stylesheet" href="/Content/bootstrap-datetimepicker.css")
+	link(rel="stylesheet", href="https://bootswatch.com/yeti/bootstrap.min.css")
+	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+	link(rel="stylesheet", href="/static/css/app.min.css")
+	link(rel="shortcut icon", href="/static/favicon.ico")
 
-	//Calendario
-	link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
-	link(rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css")
-
-	// Latest compiled and minified JavaScript
-	
 	title IsamaelCorp
 body
 	
-	nav(class="navbar navbar-default" role="navigation")
+	nav(class="navbar navbar-inverse navbar-fixed-top" role="navigation")
 		div(class="container")
-			div(class="row")
-				div(class="col-md-8")
-					div(class="navbar-header")
-						a(href="/e" class="navbar-brand") Isamael Corp: e#[sup 3]
-						button(type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-menu")
-							span(class="sr-only") Expandir navegación
-							span(class="icon-bar")
-							span(class="icon-bar")
-							span(class="icon-bar")
-				div(class="collapse navbar-collapse" id="collapse-menu")
-					ul(class="nav navbar-nav")
-						li: a(href="/e") Inicio
-						li: a(href="/e/signup") Registrarse
-						li: a(href="/e/login") Iniciar sesión
+			div(class="navbar-header")
+				button(type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-menu")
+					span(class="sr-only") Expandir navegación
+					span(class="icon-bar")
+					span(class="icon-bar")
+					span(class="icon-bar")
+				a(href="/e" class="navbar-brand") Isamael Corp: e#[sup 3]
+			div(class="collapse navbar-collapse" id="collapse-menu")
+				form(class="navbar-form navbar-left" role="search" action="#" method="get")
+					div(class="form-group")
+						input(type="text" class="form-control" placeholder="Curso de..." name="q")
+				ul(class="nav navbar-nav navbar-right")
+					li: a(href="/e") Inicio
+					li: a(href="/e/signup") Registrarse
+					li: a(href="/e/login") Iniciar sesión
 
-	div(class="container")
+	div(class="container page-content")
 		block content
 
 	script(src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous")

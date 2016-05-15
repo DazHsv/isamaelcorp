@@ -1,22 +1,21 @@
 extends ./index.pug
 block content
-	div(class="container")
+	div(class="container page-content")
 		div(class="row")
-			div(class="col-sm-12 col-md-5 col-md-offset-3 text-center")
-				form(class="form-horizontal" action="/login" method="post")
-					fieldset
-						legend Iniciar sesión
-						div(class="form-group")
+			div(class="col-sm-12 col-md-5 col-md-offset-3")
+				h3 Iniciar sesión
+				form(class="form-horizontal" action="#")
+					div(class="form-group")
+						div(class="col-lg-12")
 							label(for="email" class="control-label") Correo electrónico
-							div(class="col-lg-12")
-								input(type="email" class="form-control" id="email" placeholder="Correo electrónico")
-						div(class="form-group")
+						div(class="col-lg-12")
+							input(type="email" class="form-control" id="email" placeholder="Correo electrónico")
+					div(class="form-group")
+						div(class="col-lg-12")
 							label(for="pwd" class="control-label") Contraseña
-							div(class="col-lg-12")
-								input(type="password" class="form-control" id="pwd" placeholder="Contraseña")
-						div(class="form-group")
-							div(class="col-sm-12")
-								div(class="col-md-6")
-									button(type="submit" class="btn btn-primary") Iniciar sesión
-								div(class="col-md-6")
-									button(type="submit" class="btn") Registrarse
+						div(class="col-lg-12")
+							input(type="password" class="form-control" id="pwd" placeholder="Contraseña")
+					div(class="form-group")
+						div(class="col-lg-12")
+							button(type="submit" class="btn btn-primary") Iniciar sesión
+							a(href="/e/signup" type="submit" class="btn pull-right") ¿Aún no tienes una cuenta?
