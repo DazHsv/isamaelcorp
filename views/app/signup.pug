@@ -1,2 +1,50 @@
 extends ./index.pug
 block content
+	div(class="container")
+		div(class="row")
+			div(class="col-sm-12 col-md-5 col-md-offset-3 text-center")
+				form(class="form-horizontal" action="/login" method="post")
+					fieldset
+						legend Hola, Isabella!
+						div(class="form-group")
+							label(for="nickname" class="control-label") Nickname
+							div(class="col-lg-12")
+								input(type="text" class="form-control" id="nickname" placeholder="Nickname")
+						div(class="form-group")
+							label(for="name" class="control-label") Nombre
+							div(class="col-lg-12")
+								input(type="text" class="form-control" id="name" placeholder="Nombre")
+
+
+						div(class="form-group")
+							label(for="birth" class="control-label") Fecha de Nacimiento
+							div(class="fecha")
+								input(type="text" class="form-control" placeholder="Dia")
+								input(type="text" class="form-control" placeholder="Mes")
+								input(type="text" class="form-control" placeholder="Año")
+		
+						div(class="form-group")
+							label(for="email" class="control-label") Correo electrónico
+							div(class="col-lg-12")
+								input(type="password" class="form-control" id="email" placeholder="Correo electrónico")
+						div(class="form-group")
+							label(for="pwd" class="control-label") Contraseña
+							div(class="col-lg-12")
+								input(type="password" class="form-control" id="pwd" placeholder="Contraseña")
+						div(class="form-group")
+							div(class="col-sm-12")
+								div(class="col-md-6")
+									button(type="submit" class="btn btn-primary") Iniciar sesión
+								div(class="col-md-6")
+									button(type="submit" class="btn") Registrarse							
+	script(type="text/javascript").
+			if (10 == 10) {
+				alert("working");
+				}
+	//script(type="text/javascript").
+
+	//Calendar	
+	script(scr="type='text/javascript' src='/bower_components/jquery/jquery.min.js'")
+	script(scr="type='text/javascript' src='/bower_components/moment/min/moment.min.js'")
+	script(scr="type='text/javascript' src='/bower_components/bootstrap/dist/js/bootstrap.min.js'")
+	script(scr="type='text/javascript' src='/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'")
