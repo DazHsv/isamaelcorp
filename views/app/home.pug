@@ -9,9 +9,12 @@ block content
 
 	div(class="row")
 		div(class="col-lg-12")
-			h3 ¡Cursos más recientes!
+			h2 ¡Cursos más recientes!
 
-	div(class="row text-center")
+	div(class="row")
+		if cursos.length < 1
+			div(class="col-lg-12")
+				p No hay cursos recientes.
 		each c in cursos
 			div(class="col-md-3 col-xs-6")
 				div(class="thumbnail")
@@ -21,3 +24,15 @@ block content
 						p By: #[a( href='/e/profile/'+c.owner.nickname)= c.owner.nickname]
 						p=c.description
 						p: a( class="btn btn-primary btn-sm" href='/e/course/'+c.id) Ver el curso
+
+	div(class="row")
+		div(class="col-lg-12")
+			h2 Juegos educativos
+
+	div(class="row")
+		div(class="col-xs-6 col-md-3 ")
+			div(class="thumbnail no-border")
+				a(href="http://www.classtools.net/mob/quiz_88/ISAMAEL_CORP_u4U7i.htm" target="_blank") #[img(src="http://www.classtools.net/classtools_premium/logo.gif", alt="Class Tools")]
+		div(class="col-xs-6 col-md-3 ")
+			div(class="thumbnail colored-bg")
+				a(href="http://www.purposegames.com/game/what-do-you-remember-quiz" target="_blank") #[img(src="http://www.purposegames.com/images/logo.png", alt="Purpose Games")]

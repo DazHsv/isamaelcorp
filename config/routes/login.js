@@ -6,6 +6,10 @@ router.get('/',function(req,res){
 	res.render('app/login');
 });
 
+router.get('/post_registry',function(req,res){
+	res.render('app/login',{msg:"Ahora debes iniciar sesión."});
+});
+
 router.post('/',function(req,res){
 	var pwd = enc(req.body.pwd);
 	User.findOne({

@@ -29,18 +29,14 @@ userStructure = {
 
 var schema = new Schema(userStructure);
 
-schema.statics.alreadyExist = function(arr) {
-	var statments = [];
-	arr.forEach(function(el){
-		statments.push(el);
-	});
+schema.statics.alreadyExist = function(email,nickname) {
 
 	this.findOne({
-		$or: statments
+		$or: [{email:email},{nickname:nickname}]
 	},function(err,user){
 		if(user!=null){
-			if(user.email == statments[0].email) return 1;
-			else if(user.nickname == statments[1].nickname) return -1;
+			if(user.email == email) return 1;
+			else if(user.nickname == nickname) return -1;
 			else return 0;
 		}
 	});
