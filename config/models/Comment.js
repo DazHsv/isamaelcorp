@@ -1,4 +1,6 @@
-var ObjectId = require('mongoose').Schema.Types.ObjectId;
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema,
+	ObjectId = Schema.Types.ObjectId;
 
 // Estructura para el esquema de el objeto Comentario
 commentStructure = {
@@ -20,5 +22,7 @@ replyStructure = {
 	published_date:{ type:Date, default:Date.now }
 }
 
-module.exports.Comment = commentStructure;
-module.exports.Reply = replyStructure;
+module.exports = {
+	Comment:  mongoose.model('Comment', new Schema(commentStructure)),
+	Reply: mongoose.model('Reply', new Schema(replyStructure))
+}

@@ -1,4 +1,6 @@
-var ObjectId = require('mongoose').Schema.Types.ObjectId;
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema,
+	ObjectId = Schema.Types.ObjectId;
 
 // Estructura para el esquema de el objeto Curso
 courseStructure = {
@@ -20,8 +22,7 @@ courseStructure = {
 	votes: {
 		positive:{ type:Number, default:0 },
 		negative:{ type:Number,	default:0 }
-	},
-	image_url: String
+	}
 }
 
-module.exports = courseStructure;
+module.exports =  mongoose.model('Course', new Schema(courseStructure));

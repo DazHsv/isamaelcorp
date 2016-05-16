@@ -1,4 +1,6 @@
-var ObjectId = require('mongoose').Schema.Types.ObjectId;
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema,
+	ObjectId = Schema.Types.ObjectId;
 
 // Estructura para el esquema de el objeto Video
 videoStructure = {
@@ -32,4 +34,4 @@ videoStructure = {
 	comments:[{type:ObjectId, ref:'Comment'}]
 }
 
-module.exports = videoStructure;
+module.exports = mongoose.model('Video', new Schema(videoStructure));

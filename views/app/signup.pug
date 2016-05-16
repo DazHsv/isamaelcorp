@@ -9,22 +9,42 @@ block content
 						div(class="col-lg-12")
 							label(for="nickname" class="control-label") Nombre de usuario
 						div(class="col-lg-12")
-							input(type="text" class="form-control" id="nickname" placeholder="Nombre de usuario")
+							input(type="text" class="form-control" name="nickname" id="nickname" placeholder="Nombre de usuario")
+							if error.nickname_exist
+								span(class="text-danger") El nombre de usuario ya existe.
 					div(class="form-group")
 						div(class="col-lg-12")
 							label(for="name" class="control-label") Nombre
 						div(class="col-lg-12")
-							input(type="text" class="form-control" id="name" placeholder="Nombre")
+							input(type="text" class="form-control" name="name" id="name" placeholder="Nombre")
 					div(class="form-group")
 						div(class="col-lg-12")
 							label(for="email" class="control-label") Correo electrónico
 						div(class="col-lg-12")
-							input(type="email" class="form-control" id="email" placeholder="Correo electrónico")
+							input(type="email" class="form-control" name="email" id="email" placeholder="Correo electrónico")
+							if error.email_exist
+								span(class="text-danger") El correo electrónico ya existe.
+					div(class="form-group")
+						div(class="col-lg-12")
+							label(for="email" class="control-label") Confirma el correo electrónico
+						div(class="col-lg-12")
+							input(type="email" class="form-control" name="re_email" id="email" placeholder="Confirma el correo electrónico")
+							if error.email_dont_match
+								span(class="text-danger") Los correos no coinciden.
 					div(class="form-group")
 						div(class="col-lg-12")
 							label(for="pwd" class="control-label") Contraseña
 						div(class="col-lg-12")
-							input(type="password" class="form-control" id="pwd" placeholder="Contraseña")
+							input(type="password" class="form-control" name="pwd" id="pwd" placeholder="Contraseña")
+							if error.pwd_wrong
+								span(class="text-danger") La contraseña debe ser alfanumérica (a-z, 0-9) y de almenos 6 caracteres.
+					div(class="form-group")
+						div(class="col-lg-12")
+							label(for="pwd" class="control-label") Confirma la contraseña
+						div(class="col-lg-12")
+							input(type="password" class="form-control" name="re_pwd" id="pwd" placeholder="Confirma la contraseña")
+							if error.pwd_dont_match
+								span(class="text-danger") Las contraseñas no coinciden.
 					div(class="form-group")
 						div(class="col-lg-12")
 							button(type="submit" class="btn btn-success") Registrarse
