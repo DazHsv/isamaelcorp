@@ -8,10 +8,6 @@ block content
 				if error
 					div(class="alert alert-danger")
 						strong Lo sentimos. #{error}
-				if msg
-					div(class="alert alert-success")
-						strong= msg
-
 				form(class="form-horizontal" action="/e/login" method="post")
 					div(class="form-group")
 						div(class="col-lg-12")

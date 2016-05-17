@@ -28,10 +28,22 @@ body
 				form(class="navbar-form navbar-left" role="search" action="/e/search/" method="get")
 					div(class="form-group")
 						input(type="text" class="form-control" placeholder="Curso de..." name="q")
-				ul(class="nav navbar-nav navbar-right")
-					li: a(href="/e") Inicio
-					li: a(href="/e/signup") Registrarse
-					li: a(href="/e/login") Iniciar sesión
+				if logged
+					ul(class="nav navbar-nav navbar-right")
+						li: a(href="/e") Inicio
+						li(class="dropdown")
+							a(href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" ) Nuevo #[span(class="caret")]
+							ul(class="dropdown-menu" role="menu")
+								li: a(href="/e/video/new") Video
+								li: a(href="/e/course/new") Curso
+						li: a(href="/e/profile/") Perfil
+						li: a(href="/e/logout") Cerrar sesión
+				else
+					ul(class="nav navbar-nav navbar-right")
+						li: a(href="/e") Inicio
+						li: a(href="/e/signup") Registrarse
+						li: a(href="/e/login") Iniciar sesión
+
 
 	div(class="container page-content")
 		block content

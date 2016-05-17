@@ -15,12 +15,8 @@ router.get('/',function(req,res){
 });
 
 router.post('/',function(req,res){
-	var opts = {
-		email:req.body.email,
-		nickname:req.body.nickname
-	};
 	var pwd = enc(req.body.pwd);
-	var exist = User.alreadyExist(opts.email,opts.nickname);
+	var exist = User.alreadyExist(req.body.email,req.body.nickname);
 
 	if( exist == 0 ){
 		var newUser = {
@@ -34,7 +30,7 @@ router.post('/',function(req,res){
 		var user = new User(newUser);
 
 		user.save(function(err){
-			res.redirect('/e/login/post_registry');
+			res.redirect('/e/post_registry');
 		});
 	}else if(exist == 1){
 		e.email_exist = true;

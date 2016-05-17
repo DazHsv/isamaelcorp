@@ -22,7 +22,18 @@ courseStructure = {
 	votes: {
 		positive:{ type:Number, default:0 },
 		negative:{ type:Number,	default:0 }
-	}
+	},
+	image:String
 }
 
-module.exports =  mongoose.model('Course', new Schema(courseStructure));
+var schema = new Schema(courseStructure);
+
+schema.virtual('image.url')
+	.get(function(){
+		if ( this.image != "" )
+			return this.image;
+		
+		return "/img/course_avatar.png";
+	});
+
+module.exports =  mongoose.model('Course', schema);

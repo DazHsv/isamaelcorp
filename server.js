@@ -6,7 +6,14 @@ var express        = require('express'),
 	mongoose       = require('mongoose'),
 	MongoStore     = require('connect-mongo/es5')(session),
 	app            = express(),
-	Router = require('./config/routes');
+	Router = require('./config/routes'),
+	cloudinary = require('cloudinary');
+
+cloudinary.config({ 
+  cloud_name: 'dazcloud', 
+  api_key: '716512258368378', 
+  api_secret: 'QTtcDvKrNuFe3tAKnuc4CU_dCYU' 
+});
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP,
 	port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
@@ -49,7 +56,7 @@ app.use(session({
 	saveUninitialized:false,
 	store: new MongoStore({
 		mongooseConnection: db,
-		ttl: 24 * 60 * 60
+		ttl: 3 * 60 * 60
 	})
 }));
 if (app.get('env') === 'development') {
@@ -59,3 +66,4 @@ if (app.get('env') === 'development') {
 Router(app);
 
 app.listen(port,ipaddress);
+
