@@ -28,7 +28,6 @@ router.get('/',function(req,res){
 						cursos:cursos,
 						logged:logged
 					});
-					console.log(cursos);
 			});
 	});
 

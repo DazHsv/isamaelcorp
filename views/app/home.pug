@@ -22,7 +22,7 @@ block content
 					//img(src=c.image_url alt=c.title title=c.title)
 					div(class="caption text-center")
 						h3= c.title
-						p= c.description
+						p= c.description.substring(0,60) + "..."
 						p By: #[a( href='/e/profile/'+c.owner.nickname)= c.owner.nickname]
 						p: a( class="btn btn-primary btn-sm" href='/e/course/'+c.id) Ver el curso
 
@@ -39,7 +39,7 @@ block content
 				div(class="thumbnail")
 					div(class="caption text-center")
 						h3= mc.title
-						p= mc.description
+						p= mc.description.substring(0,60) + "..."
 						p By: #[a(href='/e/profile/'+mc.owner.nickname)= mc.owner.nickname]
 						p: a(class="btn btn-primary btn-sm" href='/e/course/mini/'+mc.id) Ver el curso
 

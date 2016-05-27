@@ -29,8 +29,6 @@ router.get('/:id',function(req,res){
 		.populate('owner')
 		.exec(function(err,c){
 			if(!err){
-				console.log(c);
-				console.log(err);
 				res.render('app/curso/curso',{
 					curso: c,
 					logged: (req.session != null ? true : false )
