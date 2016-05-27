@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
 	ObjectId = Schema.Types.ObjectId;
 
 // Estructura para el esquema de el objeto Curso
-courseStructure = {
+miniCourseStructure = {
 	owner:{ type:ObjectId, required:true, ref:'User' },
 	title:{
 		type:String,
@@ -14,21 +14,27 @@ courseStructure = {
 		default:'No hay descripcion disponible'
 	},
 	category:String,
-	tags:[{type:String}],
+	tags:[{type:String, default:[]}],
 	published_date:{ type:Date, default:Date.now },
 	public:{ type:Boolean, default:false },
-	videos:[ { type:ObjectId, ref:'Video' } ],
-	comments:[ { type:ObjectId, ref:'Comment' } ],
+	comments:[ { type:ObjectId, ref:'Comment', default:[] } ],
 	votes: {
-		positive:{ type:Number, default:0 },
-		negative:{ type:Number,	default:0 }
+		pos:{ type:Number, default:0 },
+		neg:{ type:Number,	default:0 }
 	},
 	image:String
 }
 
-var schema = new Schema(courseStructure);
+courseStructure = miniCourseStructure;
+miniCourseStructure.player_url = {type:String, required:true};
+miniCourseStructure.url = {type:String, required:true};
 
-schema.virtual('image.url')
+courseStructure.videos = [ { type:ObjectId, ref:'Video', default:[] } ];
+
+var miniCourseSchema = new Schema(miniCourseStructure);
+var courseSchema = new Schema(courseStructure);
+
+miniCourseSchema.virtual('image.url')
 	.get(function(){
 		if ( this.image != "" )
 			return this.image;
@@ -36,4 +42,23 @@ schema.virtual('image.url')
 		return "/img/course_avatar.png";
 	});
 
-module.exports =  mongoose.model('Course', schema);
+courseSchema.virtual('image.url')
+	.get(function(){
+		if ( this.image != "" )
+			return this.image;
+		
+		return "/img/course_avatar.png";
+	});
+courseSchema.virtual('date').get(function(){
+	var date = new Date(this.published_date);
+	return date.toLocaleDateString("es-MX");
+});
+miniCourseSchema.virtual('date').get(function(){
+	var date = new Date(this.published_date);
+	return date.toLocaleDateString("es-MX");
+});
+
+module.exports = {
+	Course: mongoose.model('Course', courseSchema),
+	MiniCourse: mongoose.model('MiniCourse', miniCourseSchema)
+};

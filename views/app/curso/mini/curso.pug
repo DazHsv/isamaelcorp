@@ -1,0 +1,17 @@
+extends ../../index.pug
+block content
+	div(class="row")
+		div(class="col-lg-12")
+			h3= curso.title
+		div(class="col-lg-12")
+			p= curso.description
+		div(class="col-lg-12")
+			p Hecho por: #[a(href="/e/profile/"+curso.owner.nickname target="_blank") #{curso.owner.nickname}]
+		div(class="col-lg-12")
+			span Encuentra esta presentación en: #[a(href=curso.url target="_blank") AuthorStream].
+		div(class="col-lg-12")
+			object(width="640" height="480" id="player")
+				param(name="movie" value=curso.player_url)
+				param(name="allowFullScreenInteractive" value="true")
+				param(name="allowScriptAccess" value="always")
+				embed(src=curso.player_url, type="application/x-shockwave-flash" allowscriptaccess="always" allowFullScreenInteractive="true" width="640" height="480")

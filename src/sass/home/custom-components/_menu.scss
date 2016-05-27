@@ -37,9 +37,8 @@
 
 #toggle-menu {
 	color: #fff;
-	height: 100%;
+	height: 3em;
 	cursor: pointer;
-	
 
 	@include from(tablet) {
 		display: none;

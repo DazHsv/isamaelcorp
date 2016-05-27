@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var Course = require('../models/Course');
+var User = require('../models/User');
 var enc = require('../enc');
 
 var e = {
@@ -11,33 +12,37 @@ var e = {
 };
 
 router.get('/',function(req,res){
-	res.render('app/signup',{error:e});
+	res.render('app/user/signup',{error:e});
 });
 
 router.post('/',function(req,res){
-	var pwd = enc(req.body.pwd);
-	var exist = User.alreadyExist(req.body.email,req.body.nickname);
+	var enc_pwd = enc(req.body.pwd);
 
-	if( exist == 0 ){
-		var newUser = {
-			nickname: req.body.nickname,
-			name: req.body.name,
-			email:req.body.email,
-			pwd: pwd,
-			acceptedTerms: req.body.acceptedTerms
-		};
+	User.find({
+		$or: [{email:req.body.email},{nickname:req.body.nickname}]
+	},function(err,user){
+		if(user != null) {
+			var newUser = {
+				nickname: req.body.nickname,
+				name: req.body.name,
+				email:req.body.email,
+				pwd: enc_pwd,
+				acceptedTerms: req.body.acceptedTerms
+			};
 
-		var user = new User(newUser);
+			var user = new User(newUser);
 
-		user.save(function(err){
-			res.redirect('/e/post_registry');
-		});
-	}else if(exist == 1){
-		e.email_exist = true;
-	}else{
-		e.nickname_exist = true;
-	}
-	res.render('app/signup',{error:e});
+			user.save(function(err){
+				res.redirect('/e/post_registry');
+				console.log('User registered');
+			});
+
+		}else {
+			e.email_exist = true;
+			e.nickname_exist = true;
+			res.render('app/user/signup',{error:e});
+		}
+	});
 });
 
 module.exports = router;

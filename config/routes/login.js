@@ -3,7 +3,7 @@ var User = require('../models/User');
 var enc = require('../enc');
 
 router.get('/',function(req,res){
-	res.render('app/login');
+	res.render('app/user/login');
 });
 
 router.post('/',function(req,res){
@@ -25,7 +25,7 @@ router.post('/',function(req,res){
 			};
 			res.redirect('/e/');
 		}else{
-			res.render('app/login',{error:"El usuario no existe o la contraseña es incorrecta."});
+			res.render('app/user/login',{error:"El usuario no existe o la contraseña es incorrecta."});
 		}
 
 	});

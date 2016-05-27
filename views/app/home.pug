@@ -1,29 +1,47 @@
 extends ./index.pug
 block content
-	header(class="jumbotron")
-		h1 Bienvenido a e#[sup 3]
-		p #[i "El conocimiento debería ser libre y gratuito"]. Basándonos en esta filosofía, nosotros confiamos en que si la cantidad correcta de personas colaboran, compartiendo sus conocimientos sin ánimo de lucro, esto se puede conseguir en un futuro.
-		p: a(href="/e/signup" class="btn btn-success btn-success btn-lg") ¡Únete ahora!
+	if !logged
+		header(class="jumbotron")
+			h1 Bienvenido a e#[sup 3]
+			p #[i "El conocimiento debería ser libre y gratuito"]. Basándonos en esta filosofía, nosotros confiamos en que si la cantidad correcta de personas colaboran, compartiendo sus conocimientos sin ánimo de lucro, esto se puede conseguir en un futuro.
+			p: a(href="/e/signup" class="btn btn-success btn-success btn-lg") ¡Únete ahora!
 
-	hr
+		hr
 
 	div(class="row")
 		div(class="col-lg-12")
 			h2 ¡Cursos más recientes!
 
 	div(class="row")
-		if cursos.length < 1
+		if cursos.curso.length < 1
 			div(class="col-lg-12")
 				p No hay cursos recientes.
-		each c in cursos
-			div(class="col-md-3 col-xs-6")
+		each c in cursos.curso
+			div(class="col-md-3 col-sm-6")
 				div(class="thumbnail")
-					img(src=c.image_url alt=c.title title=c.title)
-					div(class="caption")
+					//img(src=c.image_url alt=c.title title=c.title)
+					div(class="caption text-center")
 						h3= c.title
+						p= c.description
 						p By: #[a( href='/e/profile/'+c.owner.nickname)= c.owner.nickname]
-						p=c.description
 						p: a( class="btn btn-primary btn-sm" href='/e/course/'+c.id) Ver el curso
+
+	div(class="row")
+		div(class="col-lg-12")
+			h2 ¡MiniCursos más recientes!
+
+	div(class="row")
+		if cursos.minicurso.length < 1
+			div(class="col-lg-12")
+				p No hay minicursos recientes
+		each mc in cursos.minicurso
+			div(class="col-md-3 col-sm-6")
+				div(class="thumbnail")
+					div(class="caption text-center")
+						h3= mc.title
+						p= mc.description
+						p By: #[a(href='/e/profile/'+mc.owner.nickname)= mc.owner.nickname]
+						p: a(class="btn btn-primary btn-sm" href='/e/course/mini/'+mc.id) Ver el curso
 
 	div(class="row")
 		div(class="col-lg-12")

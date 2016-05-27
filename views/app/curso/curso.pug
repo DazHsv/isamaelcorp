@@ -1,0 +1,30 @@
+extends ../index.pug
+block content
+	div(class="row")
+		div(class="col-lg-12")
+			h2 #{curso.title}
+		hr
+		div(class="col-lg-12")
+			p "#[em #{curso.description}]"
+			p Publicado el: #[em #{curso.date}]
+			p Categoría: #[em #{curso.category || "Sin categoría."}]
+			p Etiquetas: 
+				if curso.tags > 0
+					each tag in curso.tags
+						a(href='/e/tags/'+tag)= tag
+				else
+					span #[em Sin etiquetas.]
+
+		div(class="col-lg-12")
+			if curso.votes != undefined
+				p Votos: (+) #{curso.votes.pos}, (-) #{curso.votes.neg}
+		div(class="col-lg-12")
+			h3 Videos:
+			hr
+			if curso.videos > 0
+				each video in curso.videos
+					div(class="col-sm-12 col-md-3")
+						h3: a(href="/e/video/"+video._id)= video.title
+						p #{video.description}
+			else
+				p Este curso aun no tiene videos disponibles.
